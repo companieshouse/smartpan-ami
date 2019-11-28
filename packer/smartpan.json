@@ -53,9 +53,6 @@
         {
             "type": "ansible",
             "host_alias": "{{user `ansible_host_alias`}}",
-            "groups": [
-                "smartpan"
-            ],
             "extra_arguments": [
                 "--vault-password-file", "/home/packer/vault",
                 "--extra-vars", "aws_region={{user `aws_region`}} resources_bucket={{user `resources_bucket`}} smartpan_bucket_path={{user `smartpan_bucket_path`}}"

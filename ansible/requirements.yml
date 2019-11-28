@@ -1,0 +1,6 @@
+---
+
+- src: https://github.com/companieshouse/ansible-role-mounted-volume
+  name: mounted-volume
+  version: "1.0.3"
+

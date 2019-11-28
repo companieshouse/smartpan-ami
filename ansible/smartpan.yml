@@ -1,0 +1,7 @@
+---
+
+- hosts: smartpan
+  become: true
+  roles:
+    - smartpan
+
