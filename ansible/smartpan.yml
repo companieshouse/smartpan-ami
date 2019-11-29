@@ -3,6 +3,7 @@
 - hosts: smartpan
   become: true
   roles:
+    - epel
     - pip
     - smartpan
 
