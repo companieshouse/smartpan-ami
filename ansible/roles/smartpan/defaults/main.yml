@@ -1,6 +1,6 @@
 ---
 
-smartpan_binary_directory: /usr/bin
+smartpan_binary_directory: /usr/local/bin
 smartpan_service_group: smartpan
 smartpan_service_user: smartpan
 smartpan_work_directory: /var/lib/smartpan
