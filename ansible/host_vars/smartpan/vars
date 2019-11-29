@@ -2,3 +2,9 @@
 
 gopan_version: 0.12
 
+pip_install_packages:
+  - name: boto3
+    version: "1.4.7"
+  - name: botocore
+    version: "1.7.36"
+

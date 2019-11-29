@@ -3,5 +3,6 @@
 - hosts: smartpan
   become: true
   roles:
+    - pip
     - smartpan
 
