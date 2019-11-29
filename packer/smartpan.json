@@ -7,7 +7,7 @@
         "ansible_host_alias": "smartpan",
         "version": "{{env `VERSION`}}",
         "resources_bucket": "{{env `RESOURCES_BUCKET`}}",
-        "smartpan_bucket_path": "{{env `CONCOURSE_BUCKET_PATH`}}"
+        "smartpan_bucket_path": "{{env `SMARTPAN_BUCKET_PATH`}}"
     },
     "builders": [
         {
