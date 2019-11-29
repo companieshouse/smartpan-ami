@@ -49,6 +49,16 @@
     remote_src: yes
     mode: 0755
 
+- name: Install distribution-managed SmartPAN dependencies
+  yum:
+    name:
+      - perl
+      - perl-App-cpanminus
+      - perl-JSON-XS
+
+- name: Install cpanm-managed SmartPAN dependencies
+  command: cpanm Parse::LocalDistribution
+
 - name: Remove temporary directory
   file:
     path: temp_dir.path
