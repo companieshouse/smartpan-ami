@@ -5,6 +5,6 @@
   roles:
     - epel
     - pip
-    - mounted-volume
     - smartpan
+    - mounted-volume
 
