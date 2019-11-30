@@ -47,7 +47,7 @@
                 },
                 {
                     "device_name": "/dev/xvdb",
-                    "volume_size": 100,
+                    "volume_size": 20,
                     "volume_type": "gp2",
                     "delete_on_termination": true
                 }
