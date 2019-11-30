@@ -6,7 +6,7 @@ smartpan_service_user: smartpan
 smartpan_work_directory: /var/lib/smartpan
 
 volume_mounts:
-  - device: /dev/sdf
+  - device: /dev/xvdb
     file_system_type: ext4
     group: "{{ smartpan_service_group }}"
     logical_volume: smartpan
