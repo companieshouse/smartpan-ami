@@ -27,7 +27,7 @@
             },
             "instance_type": "{{user `aws_instance_type`}}",
             "ssh_username": "centos",
-            "ami_name": "smartpan-ami-{{user `version`}}",
+            "ami_name": "smartpan-ami-test-{{user `version`}}",
             "subnet_filter": {
               "filters": {
                 "tag:Name": "dev-management-private-{{user `aws_region`}}a"
