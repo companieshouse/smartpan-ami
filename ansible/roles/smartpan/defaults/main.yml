@@ -1,0 +1,17 @@
+---
+
+smartpan_binary_directory: /usr/local/bin
+smartpan_service_group: smartpan
+smartpan_service_user: smartpan
+smartpan_work_directory: /var/lib/smartpan
+
+volume_mounts:
+  - device: /dev/xvdb
+    file_system_type: ext4
+    group: "{{ smartpan_service_group }}"
+    logical_volume: smartpan
+    mode: "0755"
+    mount_point: "{{ smartpan_work_directory }}"
+    owner: "{{ smartpan_service_user }}"
+    volume_group: data
+

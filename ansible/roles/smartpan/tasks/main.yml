@@ -1,0 +1,66 @@
+---
+
+- name: Create {{ smartpan_service_group }} group
+  group:
+    name: "{{ smartpan_service_group }}"
+    state: present
+    system: yes
+
+- name: Create {{ smartpan_service_user }} user
+  user:
+    name: "{{ smartpan_service_user }}"
+    shell: /bin/bash
+    groups: "{{ smartpan_service_group }}"
+    append: yes
+    system: yes
+
+- name: Create work directory
+  file:
+    path: "{{ smartpan_work_directory }}"
+    state: directory
+    owner: "{{ smartpan_service_user }}"
+    group: "{{ smartpan_service_group }}"
+    mode: 0755
+
+- name: Create temporary directory
+  tempfile:
+    state: directory
+  register: temp_dir
+
+- name: Download GoPAN tarball
+  aws_s3:
+    bucket: "{{ resources_bucket }}"
+    object: "{{ smartpan_bucket_path }}/gopan-{{ gopan_version }}-linux_amd64.tar.gz"
+    dest: "{{ temp_dir.path }}/gopan-{{ gopan_version }}-linux_amd64.tar.gz"
+    mode: get
+
+- name: Extract GoPAN tarball
+  unarchive:
+    remote_src: yes
+    src: "{{ temp_dir.path }}/gopan-{{ gopan_version }}-linux_amd64.tar.gz"
+    dest: "{{ temp_dir.path }}"
+
+- name: Install SmartPAN
+  copy:
+    src: "{{ temp_dir.path }}/smartpan"
+    dest: "{{ smartpan_binary_directory }}/smartpan"
+    owner: root
+    group: root
+    remote_src: yes
+    mode: 0755
+
+- name: Install distribution-managed SmartPAN dependencies
+  yum:
+    name:
+      - perl
+      - perl-App-cpanminus
+      - perl-JSON-XS
+
+- name: Install cpanm-managed SmartPAN dependencies
+  command: cpanm Parse::LocalDistribution
+
+- name: Remove temporary directory
+  file:
+    path: temp_dir.path
+    state: absent
+
