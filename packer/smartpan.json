@@ -60,7 +60,7 @@
                 "Name": "smartpan-ami-snapshot-{{user `version`}}",
                 "Builder": "packer"
             },
-            "iam_instance_profile": "packer-builder-resources-{{user `aws_region`}}"
+            "iam_instance_profile": "packer-builders-{{user `aws_region`}}"
         }
     ],
     "provisioners": [
