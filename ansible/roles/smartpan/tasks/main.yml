@@ -57,7 +57,8 @@
       - perl-JSON-XS
 
 - name: Install cpanm-managed SmartPAN dependencies
-  command: cpanm Parse::LocalDistribution
+  cpanm:
+    name: Parse::LocalDistribution
 
 - name: Remove temporary directory
   file:
