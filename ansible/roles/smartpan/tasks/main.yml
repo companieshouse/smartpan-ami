@@ -49,12 +49,29 @@
     remote_src: yes
     mode: 0755
 
+- name: Install dnf-plugins-core for access to config-manager
+  dnf:
+    name:
+      - dnf-plugins-core
+
+- name: Enable PowerTools repository for access to packaged Perl dependencies
+  command: dnf config-manager --set-enabled PowerTools
+
 - name: Install distribution-managed SmartPAN dependencies
-  yum:
+  dnf:
     name:
       - perl
       - perl-App-cpanminus
       - perl-JSON-XS
+    state: latest
+
+- name: Install distribution-managed SmartPAN dependencies
+  dnf:
+    name:
+      - perl
+      - perl-App-cpanminus
+      - perl-JSON-XS
+    state: latest
 
 - name: Install cpanm-managed SmartPAN dependencies
   cpanm:
