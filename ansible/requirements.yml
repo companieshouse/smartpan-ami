@@ -11,4 +11,3 @@
 - src: https://github.com/geerlingguy/ansible-role-pip
   name: pip
   version: "1.2.1"
-

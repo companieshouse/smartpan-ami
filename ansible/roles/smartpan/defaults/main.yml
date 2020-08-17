@@ -14,4 +14,3 @@ volume_mounts:
     mount_point: "{{ smartpan_work_directory }}"
     owner: "{{ smartpan_service_user }}"
     volume_group: data
-

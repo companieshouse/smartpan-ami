@@ -29,8 +29,8 @@
 
 - name: Download GoPAN tarball
   aws_s3:
-    bucket: "{{ resources_bucket }}"
-    object: "{{ smartpan_bucket_path }}/gopan-{{ gopan_version }}-linux_amd64.tar.gz"
+    bucket: "{{ resource_bucket_name }}"
+    object: "{{ resource_bucket_smartpan_prefix }}/gopan-{{ gopan_version }}-linux_amd64.tar.gz"
     dest: "{{ temp_dir.path }}/gopan-{{ gopan_version }}-linux_amd64.tar.gz"
     mode: get
 
@@ -64,4 +64,3 @@
   file:
     path: temp_dir.path
     state: absent
-
