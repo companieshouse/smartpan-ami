@@ -51,7 +51,7 @@ variable "data_volume_size_gb" {
   description = "The EC2 instance data volume size in Gibibytes (GiB)"
 }
 
-variabdle "playbook_file_path" {
+variable "playbook_file_path" {
   type        = string
   default     = "../ansible/playbook.yml"
   description = "The relative path to the Ansible playbook file"
