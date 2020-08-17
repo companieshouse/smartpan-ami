@@ -51,8 +51,8 @@
 
 - name: Install dnf-plugins-core for access to config-manager
   dnf:
-    name:
-      - dnf-plugins-core
+    name: dnf-plugins-core
+    state: latest
 
 - name: Enable PowerTools repository for access to packaged Perl dependencies
   command: dnf config-manager --set-enabled PowerTools
