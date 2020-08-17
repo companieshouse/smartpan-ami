@@ -56,6 +56,7 @@
 
 - name: Enable PowerTools repository for access to packaged Perl dependencies
   command: dnf config-manager --set-enabled PowerTools
+  warn: false
 
 - name: Install distribution-managed SmartPAN dependencies
   dnf:
