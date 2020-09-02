@@ -29,8 +29,8 @@
 
 - name: Download GoPAN tarball
   aws_s3:
-    bucket: "{{ resources_bucket }}"
-    object: "{{ smartpan_bucket_path }}/gopan-{{ gopan_version }}-linux_amd64.tar.gz"
+    bucket: "{{ resource_bucket_name }}"
+    object: "{{ resource_bucket_smartpan_prefix }}/gopan-{{ gopan_version }}-linux_amd64.tar.gz"
     dest: "{{ temp_dir.path }}/gopan-{{ gopan_version }}-linux_amd64.tar.gz"
     mode: get
 
@@ -49,12 +49,31 @@
     remote_src: yes
     mode: 0755
 
+- name: Install dnf-plugins-core for access to config-manager
+  dnf:
+    name: dnf-plugins-core
+    state: latest
+
+- name: Enable PowerTools repository for access to packaged Perl dependencies
+  command: dnf config-manager --set-enabled PowerTools
+  args:
+    warn: false
+
 - name: Install distribution-managed SmartPAN dependencies
-  yum:
+  dnf:
     name:
       - perl
       - perl-App-cpanminus
       - perl-JSON-XS
+    state: latest
+
+- name: Install distribution-managed SmartPAN dependencies
+  dnf:
+    name:
+      - perl
+      - perl-App-cpanminus
+      - perl-JSON-XS
+    state: latest
 
 - name: Install cpanm-managed SmartPAN dependencies
   cpanm:
@@ -64,4 +83,3 @@
   file:
     path: temp_dir.path
     state: absent
-
