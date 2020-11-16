@@ -3,7 +3,7 @@
 - hosts: smartpan
   become: true
   roles:
+    - mounted-volume
     - epel
     - pip
     - smartpan
-    - mounted-volume
