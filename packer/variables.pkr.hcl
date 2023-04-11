@@ -24,14 +24,12 @@ variable "aws_region" {
 
 variable "aws_source_ami_filter_name" {
   type        = string
-  default     = "Amazon Linux 2023"
+  default     = "al2023-ami-2023.*.*.*-kernel-*.*-x86_64"
   description = "The source AMI filter string. Any filter described by the DescribeImages API documentation is valid. If multiple images match then the latest will be used"
 } 
-
-
 variable "aws_source_ami_owner_id" {
   type        = string
-  default     = "125523088429"
+  default     = "099720109477"
   description = "The source AMI owner ID; used in combination with aws_source_ami_filter_name to filter for matching source AMIs"
 }
 
