@@ -8,20 +8,6 @@ source "amazon-ebs" "builder" {
   ssh_keypair_name     = "packer-builders-${var.aws_region}"
   iam_instance_profile = "packer-builders-${var.aws_region}"
 
-  launch_block_device_mappings {
-    device_name = "/dev/sda1"
-    volume_size = var.root_volume_size_gb
-    volume_type = "gp3"
-    delete_on_termination = true
-  }
-
-  launch_block_device_mappings {
-    device_name = "/dev/xvdb"
-    volume_size = var.data_volume_size_gb
-    volume_type = "gp3"
-    delete_on_termination = true
-  }
-
   security_group_filter {
     filters = {
       "group-name": "packer-builders-${var.aws_region}"
