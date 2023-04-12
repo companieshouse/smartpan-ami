@@ -11,14 +11,14 @@ source "amazon-ebs" "builder" {
   launch_block_device_mappings {
     device_name = "/dev/sda1"
     volume_size = var.root_volume_size_gb
-    volume_type = "gp2"
+    volume_type = "gp3"
     delete_on_termination = true
   }
 
   launch_block_device_mappings {
     device_name = "/dev/xvdb"
     volume_size = var.data_volume_size_gb
-    volume_type = "gp2"
+    volume_type = "gp3"
     delete_on_termination = true
   }
 
