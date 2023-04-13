@@ -4,10 +4,10 @@ source "amazon-ebs" "builder" {
   instance_type        = var.aws_instance_type
   region               = var.aws_region
   ssh_private_key_file = var.ssh_private_key_file
+  ssh_key_exchange_algorithms = ["curve25519-sha256@libssh.org"]
   ssh_username         = var.ssh_username
   ssh_keypair_name     = "packer-builders-${var.aws_region}"
   iam_instance_profile = "packer-builders-${var.aws_region}"
-  ssh_key_exchange_algorithms = ["diffie-hellman-group1-sha1"]
 
   security_group_filter {
     filters = {
