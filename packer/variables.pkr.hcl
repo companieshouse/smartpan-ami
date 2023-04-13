@@ -74,7 +74,7 @@ variable "ssh_private_key_file" {
 
 variable "ssh_username" {
   type        = string
-  default     = "centos"
+  default     = "ec2-user"
   description = "The username Packer will use when connecting with SSH"
 }
 
