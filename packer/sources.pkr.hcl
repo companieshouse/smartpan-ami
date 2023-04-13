@@ -7,6 +7,7 @@ source "amazon-ebs" "builder" {
   ssh_username         = var.ssh_username
   ssh_keypair_name     = "packer-builders-${var.aws_region}"
   iam_instance_profile = "packer-builders-${var.aws_region}"
+  ssh_key_exchange_algorithms = ["diffie-hellman-group1-sha1"]
 
   security_group_filter {
     filters = {
