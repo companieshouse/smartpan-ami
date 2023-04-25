@@ -4,6 +4,6 @@
   become: true
   roles:
     # - mounted-volume
-    - epel
+    # - epel
     - pip
     - smartpan
