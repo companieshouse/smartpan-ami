@@ -20,6 +20,7 @@
     owner: "{{ smartpan_service_user }}"
     group: "{{ smartpan_service_group }}"
     mode: '0755'
+    state: directory
 
 - name: Create temporary directory
   tempfile:
