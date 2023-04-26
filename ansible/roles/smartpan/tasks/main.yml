@@ -54,26 +54,14 @@
     name: dnf-plugins-core
     state: latest
 
-- name: Enable PowerTools repository for access to packaged Perl dependencies
-  command: dnf config-manager --set-enabled PowerTools
+- name: Install cpanm
+  command: curl -L https://cpanmin.us | perl - --sudo App::cpanminus
   args:
-    warn: false
+    warn: false 
 
-- name: Install distribution-managed SmartPAN dependencies
-  dnf:
-    name:
-      - perl
-      - perl-App-cpanminus
-      - perl-JSON-XS
-    state: latest
-
-- name: Install distribution-managed SmartPAN dependencies
-  dnf:
-    name:
-      - perl
-      - perl-App-cpanminus
-      - perl-JSON-XS
-    state: latest
+- name: Install JSON-XS perl package
+  community.general.cpanm:
+    name: JSON::XS
 
 - name: Install cpanm-managed SmartPAN dependencies
   cpanm:
