@@ -49,23 +49,17 @@
     remote_src: yes
     mode: 0755
 
-- name: Install dnf-plugins-core for access to config-manager
+- name: Install distribution-managed SmartPAN dependencies
   dnf:
-    name: dnf-plugins-core
+    name:
+      - perl-CPAN
+      - perl-JSON-XS
     state: latest
-
-- name: Install cpanm
-  command: curl -L https://cpanmin.us | perl - --sudo App::cpanminus
-  args:
-    warn: false 
-
-- name: Install JSON-XS perl package
-  community.general.cpanm:
-    name: JSON::XS
+  ENVIRONMENT: PERL_MM_USE_DEFAULT=1
 
 - name: Install cpanm-managed SmartPAN dependencies
-  cpanm:
-    name: Parse::LocalDistribution
+  command: cpan install Parse::LocalDistribution
+  become: true
 
 - name: Remove temporary directory
   file:
