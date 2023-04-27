@@ -54,11 +54,10 @@
     name:
       - perl-CPAN
       - perl-JSON-XS
-    environment: PERL_MM_USE_DEFAULT=1
     state: latest
 
 - name: Install cpanm-managed SmartPAN dependencies
-  command: cpan install Parse::LocalDistribution
+  command: PERL_MM_USE_DEFAULT=1 cpan install Parse::LocalDistribution
   become: true
 
 - name: Remove temporary directory
