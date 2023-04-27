@@ -53,7 +53,7 @@
   dnf:
     name:
       - perl-CPAN
-      - perl-JSON-XSs
+      - perl-JSON-XS
     state: latest
 
 - name: Install cpan-managed SmartPAN dependencies
