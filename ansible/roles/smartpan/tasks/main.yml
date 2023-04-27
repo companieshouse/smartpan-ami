@@ -53,11 +53,11 @@
   dnf:
     name:
       - perl-CPAN
-      - perl-JSON-XS
+      - perl-JSON-XSs
     state: latest
 
-- name: Install cpanm-managed SmartPAN dependencies
-  command: PERL_MM_USE_DEFAULT=1 cpan install Parse::LocalDistribution
+- name: Install cpan-managed SmartPAN dependencies
+  shell:  PERL_MM_USE_DEFAULT=1 cpan install Parse::LocalDistribution
   become: true
 
 - name: Remove temporary directory
