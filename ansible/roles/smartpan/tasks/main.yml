@@ -51,10 +51,10 @@
 
 - name: Install distribution-managed SmartPAN dependencies
   dnf:
-    environment: PERL_MM_USE_DEFAULT=1
     name:
       - perl-CPAN
       - perl-JSON-XS
+    environment: PERL_MM_USE_DEFAULT=1
     state: latest
 
 - name: Install cpanm-managed SmartPAN dependencies
