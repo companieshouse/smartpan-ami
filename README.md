@@ -1,6 +1,6 @@
 # smartpan-ami
 
-This project is comprised of a collection of Packer templates and Ansible playbooks which are used in combination to build Amazon Machine Images (AMIs) for a SmartPAN deployment. It is intended to be run inside of a Docker container as part of a CI pipeline (see [infrastructure-packer-runner](https://github.com/companieshouse/infrastructure-packer-runner) for a suitable container).
+This project is comprised of a collection of Packer templates and Ansible playbooks which are used in combination to build Amazon Machine Images (AMIs) for a SmartPAN deployment. It is intended to be run inside of a Docker container as part of a CI pipeline.
 
 # Prerequisites
 
